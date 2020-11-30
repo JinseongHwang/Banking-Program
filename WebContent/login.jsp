@@ -6,9 +6,7 @@
 <title>BANK</title>
 </head>
 <body style="background-color: #f8ece0">
-	<span style="color: gray; fond-size: 0.7em;">
-		총 회원: ~명
-	</span>
+	<jsp:include page="count.jsp"/>
 	<div align="center">
 		<h1>Van Gogh BANK</h1>
 		<form method="post" action="check_id.jsp">

@@ -31,16 +31,14 @@ try {
 <% 
 } // try - end
 catch (Exception e) { %>
-	<div align="center">
-		<h2>잠시 시스템 점검 중입니다. 고객님, 조금만 기다려 주세요!!</h2>
-		<span style="color: gray; font-size: 0.5em;">
-			<%=e.getMessage() %>
-		</span><p>
-		<img src="https://img.hankyung.com/photo/201811/AA.18375348.1.jpg"
-			width="200" height="220" alt="공룡(출처: 한국경제)"><p>
-		<a href="login.jsp">로그인 화면으로</a>&nbsp;
-		<a href="login.jsp">회원가입 다시 시도</a>
-	</div>
+	<span style="color: gray; font-size: 0.5em;">
+		<%=e.getMessage() %>
+	</span><p>
+	<%-- include 지시자를 사용한 경우
+	<%@ include file="catch.jsp" %> --%>
+	<%-- Action Tag를 사용한 경우 --%>
+	<jsp:include page="catch.jsp"/>
+	
 <%} %>
 </body>
 </html>
