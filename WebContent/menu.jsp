@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,16 +16,21 @@
 <body style="background-color: lime">
 	<h2>전체 메뉴</h2>
 	<hr>
-	<font color="blue"><%=id %></font>님, 어떤 업무를 하시겠습니까? <br>
+	<span style="color: blue"><%=id %></span>님, 어떤 업무를 하시겠습니까? <br>
 	<hr><p>
 	
-	<ul>
+	<ol>
+		<li><a href="deposit.jsp">입금</a></li>
+		<li><a href="withdrawal.jsp">출금</a></li>
+		<li><a href="transfer.jsp">이체</a></li>
+		<li><a href="mylist.jsp">나의 거래 내역</a></li>
 		<li><a href="myinfo.jsp">회원정보 조회 및 변경</a></li>
 		<li><a href="logout.jsp">logout</a></li>
 		<% if (id.equals("admin")) { %>
 			<li><a href="member_list.jsp">전체 회원 리스트(admin only)</a></li>
+			<li><a href="total_list.jsp">전체 거래 내역(admin only)</a></li>
 		<%} %>
-	</ul>
+	</ol>
 	<%} %>
 </body>
 </html>
