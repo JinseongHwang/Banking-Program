@@ -4,14 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>[관리자 전용]</title>
+<title>회원 정보 조회</title>
 </head>
 <%
 	request.setCharacterEncoding("utf-8");
 	String id = (String)session.getAttribute("id");
 	String url = "jdbc:mysql://localhost:3306/jspstudy?serverTimezone=UTC";
 	String uid = "root"; String pass = "111111";
-	String sql = "select * from bankmember_ order by id";
+	String sql;
+	if (id.equals("admin")) sql = "select * from bankmember_ order by id";
+	else if (id.equals("ad_minus")) sql = "select * from bankmember_ where balance<0 order by id";
+	else sql = "select * from bankmember_ where id='" + id + "'";
 try {
 	Class.forName("com.mysql.jdbc.Driver");
 	Connection conn = DriverManager.getConnection(url, uid, pass);
@@ -20,7 +23,7 @@ try {
 %>
 <body style="background-color: #f1f1f1">
 	<div align="center">
-		<h3>전체 회원 리스트</h3>
+		<h3>회원 정보</h3>
 		<table width="600" border="1">
 			<tr>
 				<th>ID</th> <th>PW</th> <th>이름</th> <th>연락처</th> <th>계좌잔액</th> <th>가입일시</th>

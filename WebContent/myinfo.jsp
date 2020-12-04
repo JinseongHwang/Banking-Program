@@ -25,6 +25,10 @@
 		PW: <input type="text" name="pw" value="<%=rs.getString("pw")%>"/><p>
 		이름: <input type="text" name="name" value="<%=rs.getString("name")%>"/><p>
 		폰: <input type="text" name="phone" value="<%=rs.getString("phone")%>"/><p>
+		<!-- 날짜와 시간을 다 가져오고 싶으면 rs.getString(),
+			 날짜만 가져오고 싶다면 rs.getDate() 하면 된다. -->
+		가입일자: <%=rs.getDate("indate")%><p>
+		현재잔액: <%=rs.getString("balance")%><p>
 		<a href="menu.jsp">메뉴로 돌아가기</a> &nbsp;
 		<input type="submit" value="수정">
 	</form>
